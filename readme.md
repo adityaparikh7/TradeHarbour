@@ -3,7 +3,7 @@
 <p id="description">TradeHarbour aspires to be a comprehensive and user-centric solution fostering informed decision-making risk management and community engagement within the realm of option trading. Through meticulous planning strategic development and continuous refinement the platform aims to contribute positively to the efficiency and effectiveness of traders in navigating the complexities of financial markets.</p>
 
 
-Developed By:
+<p>Developed By: Aditya Parikh , Madhav Patel and Aryan Parmar </p>
 
 <p id="badges">
   <img src="https://img.shields.io/badge/Version-0.1.0-blue" alt="Version: 0.1.0" />
