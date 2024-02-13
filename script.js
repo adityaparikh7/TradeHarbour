@@ -5,8 +5,7 @@ function calculateOptionPrices() {
   var r = parseFloat(document.getElementById("interestRate").value);
   var sigma = parseFloat(document.getElementById("volatility").value);
 
-  var d1 =
-    (Math.log(S / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * Math.sqrt(T));
+  var d1 = (Math.log(S / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * Math.sqrt(T));
   var d2 = d1 - sigma * Math.sqrt(T);
 
   var callPrice =
