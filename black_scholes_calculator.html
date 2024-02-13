@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black-Scholes Option Pricing Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Black-Scholes Option Pricing Calculator</h1>
+
+        <form id="optionForm">
+            <label for="stockPrice">Current Stock Price (S):</label>
+            <input type="number" id="stockPrice" required>
+
+            <label for="strikePrice">Option Strike Price (K):</label>
+            <input type="number" id="strikePrice" required>
+
+            <label for="timeToExpiration">Time to Expiration (T) in years:</label>
+            <input type="number" id="timeToExpiration" required>
+
+            <label for="interestRate">Risk-Free Interest Rate (r):</label>
+            <input type="number" id="interestRate" required>
+
+            <label for="volatility">Volatility (sigma):</label>
+            <input type="number" id="volatility" required>
+
+            <button type="button" onclick="calculateOptionPrices()">Calculate Option Prices</button>
+        </form>
+
+        <div id="results">
+            <output id="callPrice"></output>
+            <output id="putPrice"></output>
+        </div>
+    </div>
+
+</body>
+</html>
