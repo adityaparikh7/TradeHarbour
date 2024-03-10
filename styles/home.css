@@ -39,3 +39,12 @@ nav ul li {
             display: inline;
             margin-right: 20px;
 }
+
+footer{
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
