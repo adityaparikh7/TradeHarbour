@@ -10,7 +10,7 @@ from sklearn.metrics import mean_squared_error
 ticker_symbol = 'AAPL'  # Example: Apple Inc.
 
 # Fetch historical stock price data using yfinance
-stock_data = yf.download(ticker_symbol, start='2023-01-01', end='2024-01-01')
+stock_data = yf.download(ticker_symbol, start='2023-03-08', end='2024-03-12')
 
 # Assuming your data contains 'Close' prices
 # You might need to preprocess the data, handle missing values, etc.
@@ -46,9 +46,9 @@ plt.scatter(X_test, y_test, color='blue', label='Actual Price')
 # Plotting the predicted prices
 plt.plot(X_test, predictions, color='red', label='Predicted Price')
 
-# plt.xlabel('True Values')
-# plt.ylabel('Predictions')
-plt.xlabel('Time')
-plt.ylabel('Price')
+plt.xlabel('True Values')
+plt.ylabel('Predictions')
+# plt.xlabel('Time')
+# plt.ylabel('Price')
 plt.title('True vs. Predicted Stock Prices (Linear Regression)')
 plt.show()
