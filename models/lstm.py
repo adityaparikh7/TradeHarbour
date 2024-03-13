@@ -8,9 +8,9 @@ from keras.models import load_model
 import streamlit as st
 
 start = '2020-01-01'
-end = '2024-03-11'
+end = '2024-03-12'
 
-st.title('Stock Price Prediction')
+st.title('TradeHarbour - Stock Price Prediction')
 
 user_input = st.text_input('Enter the stock symbol', 'AAPL')
 df = yf.download(user_input, start=start, end=end)
@@ -23,20 +23,21 @@ fig = plt.figure(figsize=(12, 6))
 plt.plot(df['Close'])
 st.pyplot(fig)
 
-st.subheader('Closing Price vs Time chart with 100MA')
-ma100 = df.Close.rolling(100).mean()
-fig = plt.figure(figsize=(12, 6))
-plt.plot(ma100)
-plt.plot(df.Close)
-st.pyplot(fig)
+# st.subheader('Closing Price vs Time chart with 100MA')
+# ma100 = df.Close.rolling(100).mean()
+# fig = plt.figure(figsize=(12, 6))
+# plt.plot(ma100)
+# plt.plot(df.Close)
+# st.pyplot(fig)
 
-st.subheader('Closing Price vs Time chart with 100Ma & 200MA')
+st.subheader('Closing Price vs Time chart with 100MA & 200MA')
 ma100 = df.Close.rolling(100).mean()
 ma200 = df.Close.rolling(200).mean()
 fig = plt.figure(figsize=(12, 6))
-plt.plot(ma100, 'r')
-plt.plot(ma200, 'g')
+plt.plot(ma100, 'r', label='100 Day MA')
+plt.plot(ma200, 'g', label= '200 Day MA')
 plt.plot(df.Close, 'b')
+plt.legend(loc=0)
 st.pyplot(fig)
 
 # splitting data into training and testing
@@ -58,7 +59,8 @@ for i in range(100, data_training_array.shape[0]):
 x_train, y_train = np.array(x_train), np.array(y_train)
 
 # building the LSTM model
-model = load_model('./models/keras_model.h5')
+# model = load_model('./keras_model.h5')
+model = load_model('./LSTM_model.h5')
 
 # testing the model
 past_100_days = data_training.tail(100)
@@ -76,9 +78,9 @@ x_test, y_test = np.array(x_test), np.array(y_test)
 y_predicted = model.predict(x_test)
 scaler = scaler.scale_
 
-scale_factor = 1/0.01368176
-y_predicted = y_predicted*scale_factor
-y_test = y_test*scale_factor
+# scale_factor = 1/0.00101725
+# y_predicted = y_predicted*scale_factor
+# y_test = y_test*scale_factor
 
 
 # final plots
