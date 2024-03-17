@@ -8,7 +8,7 @@ from keras.models import load_model
 import streamlit as st
 
 start = '2020-01-01'
-end = '2024-03-12'
+end = '2024-03-15'
 
 st.title('TradeHarbour - Stock Price Prediction')
 
