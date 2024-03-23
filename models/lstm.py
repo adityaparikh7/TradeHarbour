@@ -8,7 +8,7 @@ from keras.models import load_model
 import streamlit as st
 
 start = '2020-01-01'
-end = '2024-03-15'
+end = '2024-03-22'
 
 st.title('TradeHarbour - Stock Price Prediction')
 
@@ -59,7 +59,6 @@ for i in range(100, data_training_array.shape[0]):
 x_train, y_train = np.array(x_train), np.array(y_train)
 
 # building the LSTM model
-# model = load_model('./keras_model.h5')
 model = load_model('./LSTM_model.h5')
 
 # testing the model
