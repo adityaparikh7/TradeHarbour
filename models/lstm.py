@@ -8,14 +8,14 @@ from keras.models import load_model
 import streamlit as st
 
 start = '2020-01-01'
-end = '2024-03-22'
+end = '2024-04-02'
 
 st.title('TradeHarbour - Stock Price Prediction')
 
 user_input = st.text_input('Enter the stock symbol', 'AAPL')
 df = yf.download(user_input, start=start, end=end)
 
-st.subheader('Data from Jan 2020 to March 2024')
+st.subheader('Data from Jan 2020 to April 2024')
 st.write(df.describe())
 
 st.subheader('Closing Price vs Time chart')
