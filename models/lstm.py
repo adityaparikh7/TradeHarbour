@@ -8,7 +8,7 @@ from keras.models import load_model
 import streamlit as st
 
 start = '2020-01-01'
-end = '2024-04-02'
+end = '2024-04-12'
 
 st.title('TradeHarbour - Stock Price Prediction')
 
@@ -60,6 +60,7 @@ x_train, y_train = np.array(x_train), np.array(y_train)
 
 # building the LSTM model
 model = load_model('./LSTM_model.h5')
+# model = load_model('./LSTM_600.h5')
 
 # testing the model
 past_100_days = data_training.tail(100)
@@ -78,6 +79,7 @@ y_predicted = model.predict(x_test)
 scaler = scaler.scale_
 
 scale_factor = 1/0.00101725
+# scale_factor = 1/scaler
 y_predicted = y_predicted*scale_factor
 y_test = y_test*scale_factor
 
