@@ -7,15 +7,15 @@ import yfinance as yf
 from keras.models import load_model
 import streamlit as st
 
-start = '2020-01-01'
-end = '2024-04-12'
+start = '2022-01-01'
+end = '2024-04-22'
 
 st.title('TradeHarbour - Stock Price Prediction')
 
 user_input = st.text_input('Enter the stock symbol', 'AAPL')
 df = yf.download(user_input, start=start, end=end)
 
-st.subheader('Data from Jan 2020 to April 2024')
+st.subheader('Data from Jan 2022 to April 2024')
 st.write(df.describe())
 
 st.subheader('Closing Price vs Time chart')
@@ -59,8 +59,8 @@ for i in range(100, data_training_array.shape[0]):
 x_train, y_train = np.array(x_train), np.array(y_train)
 
 # building the LSTM model
-model = load_model('./LSTM_model.h5')
-# model = load_model('./LSTM_600.h5')
+# model = load_model('./LSTM_model.h5')
+model = load_model('./LSTM_model_adam.h5')
 
 # testing the model
 past_100_days = data_training.tail(100)
